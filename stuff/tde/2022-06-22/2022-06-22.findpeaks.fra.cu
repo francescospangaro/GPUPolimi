@@ -54,7 +54,7 @@ __global__ void compute_on_gpu(int *V, int *R, int num) {
     int i = blockDim.x * blockIdx.x + threadIdx.x;
     int j, ok;
     if (i < num) {
-        for (j = -DIST, ok = 1, i <= DIST; j++) {
+        for (j = -DIST, ok = 1; i <= DIST; j++) {
             if (i + j >= 0 && i + j < num && j != 0 && V[i] <= V[i+j])
             ok = 0;
         }
